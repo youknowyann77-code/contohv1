@@ -1,5 +1,5 @@
 let inputCode = "";
-const correctCode = "180326"; // GANTI DENGAN TANGGAL LAIRNYA (misal: "180326")
+const correctCode = "150210"; // GANTI DENGAN TANGGAL LAIRNYA (misal: "180326")
 const audio = document.getElementById('myAudio');
 let isMusicPlaying = false;
 
@@ -97,14 +97,11 @@ const MY_PHONE_NUMBER = "6285755191879";
 const REPLY_MESSAGE = "iyaaa sayang! terima kasih banyak buat kejutan manisnya!! i love you too 🤍💙";
 
 function goToWA() {
-    const MY_PHONE_NUMBER = "6285755191879"; 
-    const REPLY_MESSAGE = "iyaaa sayang! terima kasih banyak buat kejutan manisnya!! i love you too 🤍💙";
+    // Menggunakan API resmi WhatsApp agar tidak error di browser HP
+    const waUrl = `https://api.whatsapp.com/send?phone=${MY_PHONE_NUMBER}&text=${encodeURIComponent(REPLY_MESSAGE)}`;
     
-    // Metode wa.me adalah yang paling stabil untuk mobile browser
-    const waUrl = `https://wa.me/${6285755191879}?text=${encodeURIComponent(REPLY_MESSAGE)}`;
-    
-    // Gunakan window.open dengan '_system' atau '_blank' untuk memaksa keluar dari browser internal
-    window.open(waUrl, '_blank');
+    // Membuka link di jendela baru
+    window.location.href = waUrl;
 }
 
 // 3. EMOJI BURST EFFET
