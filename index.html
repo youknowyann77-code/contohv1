@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Birthday Gift</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <audio id="myAudio" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-wrapper">
+        
+        <div id="auth-section" class="passcode-wrapper">
+            <div class="gif-section"><img src="1.gif" alt="Sticker" class="main-gif"></div>
+            <h2 class="title">Hi love, ayo tebak passwordnya, I bet u knoww!!</h2>
+            <div class="dots-container">
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+            <div class="keypad">
+                <button onclick="addNum(1)">1</button><button onclick="addNum(2)">2</button><button onclick="addNum(3)">3</button>
+                <button onclick="addNum(4)">4</button><button onclick="addNum(5)">5</button><button onclick="addNum(6)">6</button>
+                <button onclick="addNum(7)">7</button><button onclick="addNum(8)">8</button><button onclick="addNum(9)">9</button>
+                <div class="empty"></div><button onclick="addNum(0)">0</button>
+                <button class="del-btn" onclick="erase()">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z"/></svg>
+                </button>
+            </div>
+            <p class="clue">clue: your birthday</p>
+        </div>
+
+        <div id="content-section" class="pretty-wrapper" style="display: none;">
+            <img src="2.gif" alt="Cute Bear" class="gif-pretty">
+            <h2 class="message-text">hi, pretty 🫶🏻👋🏻</h2>
+            <button class="btn-tap" onclick="nextToQuestion()">tap disinii <3</button>
+        </div>
+
+        <div id="question-section" class="pretty-wrapper" style="display: none;">
+            <img src="5.gif" alt="Cute Bear" class="gif-pretty">
+            <h2 class="message-text">Are you ready to open thisss??</h2>
+            <div class="btn-group">
+                <button class="btn-tap" onclick="finalAction()">Yes!</button>
+                <button class="btn-no" onclick="goToNgambek()">No</button>
+            </div>
+        </div>
+
+        <div id="ngambek-section" class="pretty-wrapper" style="display: none;">
+            <img src="4.gif" alt="Ngambek Bear" class="gif-pretty"> 
+            <h2 class="message-text">ohh gitu sekarang sama akuu</h2>
+            <button class="btn-tap" onclick="backToQuestion()">back</button>
+        </div>
+
+        <div id="success-section" class="pretty-wrapper" style="display: none;">
+            <img src="3.gif" alt="Happy Bear" class="gif-pretty"> 
+            <h2 class="message-text">HEHEHE TIMAACII ❤️</h2>
+            <button class="btn-tap" onclick="goToFoto1()">🤍</button>
+        </div>
+
+        <div id="foto-section" class="pretty-wrapper" style="display: none;">
+            <div class="photo-frame" onclick="shakeAndBurst(this, event)">
+                <img src="foto1.jpg" alt="Foto Kita" class="foto-kita" draggable="false"> 
+            </div>
+            <p class="romatic-text">i just want to say thank you for loving me the way you do. you accept me, support me, and stay even when things aren’t easy. that means more to me than you’ll ever know.</p>
+            <button class="btn-tap" onclick="goToBirthday()">🤍</button>
+        </div>
+
+        <div id="birthday-section" class="pretty-wrapper" style="display: none;">
+            <div class="photo-frame" onclick="shakeAndBurst(this, event)">
+                <img src="foto2.jpg" alt="Foto Birthday" class="foto-kita" draggable="false"> 
+            </div>
+            <p class="romatic-text">happy birthday, my love. on your special day, i just want to thank you for always being by my side through everything. you make my life brighter in ways i can’t even explain, and i’m so lucky to have you</p>
+            <button class="btn-tap" onclick="finalFinish()">🤍</button>
+        </div>
+
+        <div id="surat-section" class="pretty-wrapper" style="display: none;">
+            <div class="letter-card">
+                <img src="1.gif" alt="Cute Gif" class="gif-pretty" style="width: 130px; margin-bottom: 20px;">
+                <div class="message-wrapper">
+                    <p id="typewriter-text" class="surat-text"></p>
+                </div>
+                <button id="wa-btn" class="btn-tap" style="display: none; margin-top: 30px;" onclick="goToWA()">kirim balasan 🤍</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="custom-alert" class="modal-overlay">
+        <div class="modal-box">
+            <img src="0.gif" alt="Wrong" class="gif-modal"><h3 class="modal-message">Yah, salah... Coba lagi!</h3>
+            <button class="btn-no" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
